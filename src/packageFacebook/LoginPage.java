@@ -15,9 +15,6 @@ public class LoginPage implements ActionListener {
     public void setSuccessLabel(String msg) {
         this.successLabel.setText(msg);
     }
-    public LoginPage(){
-
-    }
 
     public LoginPage(JFrame frame) {
         JPanel panel = new JPanel();
