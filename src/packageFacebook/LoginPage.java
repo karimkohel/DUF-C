@@ -1,14 +1,14 @@
+package packageFacebook;
 import javax.swing.*;
 
-public class Facebook {
-    public static void main(String[] args) {
-        JFrame frame = new JFrame();
-        JPanel panel = new JPanel();
-        frame.setSize(460,240);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(panel);
+public class LoginPage {
+    JPanel panel = new JPanel();
+
+    public LoginPage(JFrame frame) {
+
 
         panel.setLayout(null);
+        frame.add(panel);
 
         JLabel usernameLabel = new JLabel("Username");
         usernameLabel.setBounds(10,20,80,25);
@@ -17,7 +17,6 @@ public class Facebook {
         JTextField usernameTextField = new JTextField(20);
         usernameTextField.setBounds(100,20,165,25);
         panel.add(usernameTextField);
-
 
         JLabel passwordLabel = new JLabel("Password");
         passwordLabel.setBounds(10, 50, 80, 25);
@@ -33,4 +32,6 @@ public class Facebook {
 
         frame.setVisible(true);
     }
+
+
 }
