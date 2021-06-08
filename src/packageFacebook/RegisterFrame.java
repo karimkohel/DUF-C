@@ -1,10 +1,7 @@
 package packageFacebook;
 
-import javax.swing.*;
-
-public class LoginFrame extends MainFrame implements IOInterface {
-
-    public LoginFrame(){
+public class RegisterFrame extends MainFrame implements IOInterface{
+    public RegisterFrame() {
         super();
 
         this.usernameLabel.setBounds(550,200,80,25);
@@ -39,17 +36,13 @@ public class LoginFrame extends MainFrame implements IOInterface {
     }
 
     private void registerButtonPress() {
-        // TODO
     }
 
-    private void loginButtonPress(){
-        this.loginButton.setEnabled(false);
-        this.registerButton.setEnabled(false);
-        this.showSuccessOrFailure(true);
+    private void loginButtonPress() {
     }
 
     @Override
     public void showSuccessOrFailure(boolean success) {
-        this.successLabel.setText(success ? "Username and Password correct!" : "Username or Password incorrect");
+
     }
 }
