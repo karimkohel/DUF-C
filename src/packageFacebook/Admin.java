@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.InvalidPropertiesFormatException;
 import java.util.List;
 
-public class Admin extends User{
+public class Admin extends Client{
     private String token;
-    private static List<String> tokens = new ArrayList<>();
+
+    private static final List<String> tokens = new ArrayList<>();
 
     public String getToken() {
         return token;
     }
 
-    public void setToken(String token) {
+    public void setToken() {
         // this is the equivalent of a random hash and a salt
         this.token = String.valueOf(Math.random() + 5);
         Admin.tokens.add(this.token);
@@ -24,5 +25,11 @@ public class Admin extends User{
 
     public Admin(String username, String password) throws InvalidPropertiesFormatException {
         super(username, password);
+        this.setToken();
+    }
+
+    public Admin(String username, String password, String email, int age, String token) throws InvalidPropertiesFormatException {
+        super(username, password, email, age);
+        this.setToken();
     }
 }

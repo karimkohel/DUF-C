@@ -4,6 +4,8 @@ package packageFacebook;
 public class Main {
 
     public static void main(String[] args) {
-        LoginFrame login = new LoginFrame();
+        RegisterFrame reg = new RegisterFrame();
+        LoginFrame log = new LoginFrame();
+
     }
 }

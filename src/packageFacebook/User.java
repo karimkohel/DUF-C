@@ -51,4 +51,8 @@ public abstract class User {
         this.setPassword(password);
     }
 
+    public void post(String title, String content){
+        // TODO
+    }
+
 }
