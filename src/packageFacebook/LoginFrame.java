@@ -1,7 +1,5 @@
 package packageFacebook;
 
-import javax.swing.*;
-
 public class LoginFrame extends IOFrame implements IOInterface {
 
     public LoginFrame(){
@@ -49,21 +47,21 @@ public class LoginFrame extends IOFrame implements IOInterface {
 
     private void loginButtonPress(){
         try{
-            User found;
+            User found = null;
             for(User user : User.users){
                 if(this.usernameTextField.getText().equals(user.getUsername())){
                     if(User.hashPassword(this.passwordTextField.getText()).equals(user.getPassword())){
-                        this.showSuccessOrFailure(true);
-                        MainFrame.getHomeFrame().setAuthedUser(user);
-                        MainFrame.switchFrame(MainFrame.getHomeFrame());
-                    }
-                    else{
-                        this.showSuccessOrFailure(false);
+                        found = user;
                     }
                 }
-                else {
-                    this.showSuccessOrFailure(false);
-                }
+            }
+            if(found != null){
+                this.showSuccessOrFailure(true);
+                MainFrame.getHomeFrame().setAuthedUser(found);
+                MainFrame.switchFrame(MainFrame.getHomeFrame());
+            }
+            else {
+                this.showSuccessOrFailure(false);
             }
         }
         catch (Exception e){
