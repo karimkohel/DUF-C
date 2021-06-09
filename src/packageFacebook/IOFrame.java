@@ -13,7 +13,8 @@ public class IOFrame extends MainFrame implements IOInterface{
     protected JLabel passwordLabel = new JLabel("Password");
     protected JPasswordField passwordTextField = new JPasswordField(30);
 
-    // TODO Main logo
+    protected ImageIcon icon = new ImageIcon("packageFacebook/fb-logo.png");
+    protected JLabel iconLabel = new JLabel();
 
     @Override
     protected void goBack() {

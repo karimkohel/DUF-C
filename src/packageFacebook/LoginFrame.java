@@ -7,6 +7,11 @@ public class LoginFrame extends IOFrame implements IOInterface {
     public LoginFrame(){
         super();
 
+        this.iconLabel.setIcon(this.icon);
+        this.iconLabel.setBounds(400, 150, 100, 100);
+        this.add(this.iconLabel);
+        // todo check why logo wont show
+        
         this.usernameLabel.setBounds(550,200,80,25);
         this.usernameLabel.setForeground(this.textColor);
         this.add(this.usernameLabel);
@@ -49,8 +54,8 @@ public class LoginFrame extends IOFrame implements IOInterface {
                 if(this.usernameTextField.getText().equals(user.getUsername())){
                     if(User.hashPassword(this.passwordTextField.getText()).equals(user.getPassword())){
                         this.showSuccessOrFailure(true);
+                        MainFrame.getHomeFrame().setAuthedUser(user);
                         MainFrame.switchFrame(MainFrame.getHomeFrame());
-                        System.out.println("AUTHED");
                     }
                     else{
                         this.showSuccessOrFailure(false);
