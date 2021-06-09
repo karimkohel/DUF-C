@@ -41,4 +41,6 @@ public class Client extends User{
         this.setEmail(email);
         this.setAge(age);
     }
+
+    // TODO copy constructor
 }

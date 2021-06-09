@@ -55,4 +55,6 @@ public abstract class User {
         // TODO
     }
 
+    // TODO copy constructor
+
 }

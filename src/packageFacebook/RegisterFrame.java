@@ -64,7 +64,6 @@ public class RegisterFrame extends IOFrame implements IOInterface{
         this.successLabel.setBounds(700,350,300,25);
         this.add(this.successLabel);
 
-        this.setVisible(true);
     }
 
     private void registerButtonPress() {
@@ -72,7 +71,9 @@ public class RegisterFrame extends IOFrame implements IOInterface{
     }
 
     private void loginButtonPress() {
-        // TODO
+        this.setVisible(false);
+        LoginFrame loginFrame = new LoginFrame();
+        loginFrame.setBackFrame(this);
     }
 
     @Override

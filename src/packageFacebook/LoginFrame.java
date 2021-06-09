@@ -36,17 +36,14 @@ public class LoginFrame extends IOFrame implements IOInterface {
         this.successLabel.setBounds(700,350,300,25);
         this.add(this.successLabel);
 
-        this.setVisible(true);
     }
 
     private void registerButtonPress() {
-        // TODO
+        this.goBack();
     }
 
     private void loginButtonPress(){
-        this.loginButton.setEnabled(false);
-        this.registerButton.setEnabled(false);
-        this.showSuccessOrFailure(true);
+        // TODO
     }
 
     @Override
