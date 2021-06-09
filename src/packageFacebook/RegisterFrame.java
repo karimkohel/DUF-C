@@ -2,8 +2,9 @@ package packageFacebook;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.InvalidPropertiesFormatException;
 
-public class RegisterFrame extends IOFrame implements IOInterface{
+public class RegisterFrame extends IOFrame{
 
     JCheckBox adminCheckBox = new JCheckBox("Admin");
 
@@ -61,23 +62,48 @@ public class RegisterFrame extends IOFrame implements IOInterface{
         this.registerButton.addActionListener(e -> this.registerButtonPress());
         this.add(this.registerButton);
 
-        this.successLabel.setBounds(700,350,300,25);
+        this.successLabel.setBounds(900,350,300,25);
         this.add(this.successLabel);
-
     }
 
     private void registerButtonPress() {
-        // TODO
+        try{
+            if(this.adminCheckBox.isSelected()){
+                Admin tempUser = new Admin(
+                        this.usernameTextField.getText(),
+                        this.passwordTextField.getText(),
+                        this.emailTextField.getText(),
+                        Integer.parseInt(this.ageTextField.getText())
+                );
+                User.users.add(tempUser);
+            }
+            else{
+                Client tempUser = new Client(
+                        this.usernameTextField.getText(),
+                        this.passwordTextField.getText(),
+                        this.emailTextField.getText(),
+                        Integer.parseInt(this.ageTextField.getText())
+                );
+                User.users.add(tempUser);
+            }
+            this.showSuccessOrFailure(true);
+            System.out.println(User.users.get(User.users.size() - 1));
+            this.clearInputs();
+            this.loginButtonPress();
+        }
+        catch (Exception e){
+            this.showSuccessOrFailure(false);
+        }
     }
 
     private void loginButtonPress() {
-        this.setVisible(false);
-        LoginFrame loginFrame = new LoginFrame();
-        loginFrame.setBackFrame(this);
+        this.clearInputs();
+        MainFrame.switchFrame(MainFrame.getLoginFrame());
     }
-
-    @Override
-    public void showSuccessOrFailure(boolean success) {
-        // TODO
+    private void clearInputs(){
+        this.usernameTextField.setText("");
+        this.passwordTextField.setText("");
+        this.ageTextField.setText("");
+        this.emailTextField.setText("");
     }
 }

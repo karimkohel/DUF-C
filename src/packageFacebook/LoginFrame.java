@@ -39,15 +39,30 @@ public class LoginFrame extends IOFrame implements IOInterface {
     }
 
     private void registerButtonPress() {
-        this.goBack();
+        MainFrame.switchFrame(MainFrame.getRegisterFrame());
     }
 
     private void loginButtonPress(){
-        // TODO
-    }
-
-    @Override
-    public void showSuccessOrFailure(boolean success) {
-        this.successLabel.setText(success ? "Username and Password correct!" : "Username or Password incorrect");
+        try{
+            User found;
+            for(User user : User.users){
+                if(this.usernameTextField.getText().equals(user.getUsername())){
+                    if(User.hashPassword(this.passwordTextField.getText()).equals(user.getPassword())){
+                        this.showSuccessOrFailure(true);
+                        MainFrame.switchFrame(MainFrame.getHomeFrame());
+                        System.out.println("AUTHED");
+                    }
+                    else{
+                        this.showSuccessOrFailure(false);
+                    }
+                }
+                else {
+                    this.showSuccessOrFailure(false);
+                }
+            }
+        }
+        catch (Exception e){
+            System.out.println("error wee");
+        }
     }
 }

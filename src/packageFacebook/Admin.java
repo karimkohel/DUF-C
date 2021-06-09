@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.InvalidPropertiesFormatException;
 import java.util.List;
 
-public class Admin extends Client{
-    private String token;
+public class Admin extends Client implements HashableInterface{
+    private long token;
 
-    private static final List<String> tokens = new ArrayList<>();
+    private static final List<Long> tokens = new ArrayList<Long>();
 
-    public String getToken() {
+    private long getToken() {
         return token;
     }
 
-    public void setToken() {
+    private void setToken() {
         // this is the equivalent of a random hash and a salt
-        this.token = String.valueOf(Math.random() + 5);
+        this.token = Math.round(Math.random() + 5);
         Admin.tokens.add(this.token);
     }
 
@@ -28,8 +28,20 @@ public class Admin extends Client{
         this.setToken();
     }
 
-    public Admin(String username, String password, String email, int age, String token) throws InvalidPropertiesFormatException {
+    public Admin(String username, String password, String email, int age) throws InvalidPropertiesFormatException {
         super(username, password, email, age);
         this.setToken();
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Admin{" +
+                "token='" + token + '\'' +
+                '}';
+    }
+
+    @Override
+    public Object showHashOrToken() {
+        return this.getToken();
     }
 }
