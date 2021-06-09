@@ -42,8 +42,6 @@ public class Client extends User{
         this.setAge(age);
     }
 
-    // TODO copy constructor
-
     @Override
     public String toString() {
         return super.toString() + " Client{" +
