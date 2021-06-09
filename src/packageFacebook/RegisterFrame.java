@@ -30,7 +30,6 @@ public class RegisterFrame extends IOFrame implements IOInterface{
         this.passwordTextField.setBounds(650,250,165,25);
         this.add(this.passwordTextField);
 
-
         this.adminCheckBox.setBounds(850, 200, 100,25);
         this.adminCheckBox.setForeground(this.textColor);
         this.adminCheckBox.setBackground(new Color(0x123451));

@@ -27,7 +27,8 @@ public class LoginFrame extends IOFrame implements IOInterface {
         this.loginButton.addActionListener(e -> this.loginButtonPress());
         this.add(this.loginButton);
 
-        this.registerButton.setBounds(660, 350, 100, 25);
+        this.registerButton.setBounds(850, 500, 200, 25);
+        this.registerButton.setText("Need an account? Register!");
         this.registerButton.setFocusable(false);
         this.registerButton.addActionListener(e -> this.registerButtonPress());
         this.add(this.registerButton);
