@@ -11,6 +11,7 @@ public abstract class MainFrame extends JFrame{
         this.setSize(1420, 800);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.getContentPane().setBackground(new Color(0x123451));
+        this.setResizable(false);
         this.setLayout(null);
     }
 }

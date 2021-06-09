@@ -11,4 +11,6 @@ public class IOFrame extends MainFrame{
     protected JTextField usernameTextField = new JTextField(30);
     protected JLabel passwordLabel = new JLabel("Password");
     protected JPasswordField passwordTextField = new JPasswordField(30);
+
+    // TODO Main logo
 }

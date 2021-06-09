@@ -7,6 +7,12 @@ public class RegisterFrame extends IOFrame implements IOInterface{
 
     JCheckBox adminCheckBox = new JCheckBox("Admin");
 
+    JLabel emailLabel = new JLabel("Email");
+    JTextField emailTextField = new JTextField(30);
+
+    JLabel  ageLabel= new JLabel("Age");
+    JTextField ageTextField = new JTextField(30);
+
     public RegisterFrame() {
         super();
 
@@ -24,24 +30,40 @@ public class RegisterFrame extends IOFrame implements IOInterface{
         this.passwordTextField.setBounds(650,250,165,25);
         this.add(this.passwordTextField);
 
-        this.loginButton.setBounds(660, 300, 100, 25);
+
+        this.adminCheckBox.setBounds(850, 200, 100,25);
+        this.adminCheckBox.setForeground(this.textColor);
+        this.adminCheckBox.setBackground(new Color(0x123451));
+        this.add(this.adminCheckBox);
+
+        this.emailLabel.setBounds(550, 300, 80, 25);
+        this.emailLabel.setForeground(this.textColor);
+        this.add(this.emailLabel);
+
+        this.emailTextField.setBounds(650, 300, 165, 25);
+        this.add(emailTextField);
+
+        this.ageLabel.setBounds(550, 350, 80, 25);
+        this.ageLabel.setForeground(this.textColor);
+        this.add(this.ageLabel);
+
+        this.ageTextField.setBounds(650, 350, 165, 25);
+        this.add(this.ageTextField);
+
+        this.loginButton.setBounds(850, 500, 200, 25);
+        this.loginButton.setText("Have an account? Login!");
         this.loginButton.setFocusable(false);
         // lambda expressions are better than implementing interfaces
         this.loginButton.addActionListener(e -> this.loginButtonPress());
         this.add(this.loginButton);
 
-        this.registerButton.setBounds(660, 350, 100, 25);
+        this.registerButton.setBounds(660, 400, 100, 25);
         this.registerButton.setFocusable(false);
         this.registerButton.addActionListener(e -> this.registerButtonPress());
         this.add(this.registerButton);
 
         this.successLabel.setBounds(700,350,300,25);
         this.add(this.successLabel);
-
-        this.adminCheckBox.setBounds(850, 200, 100,25);
-        this.adminCheckBox.setForeground(this.textColor);
-        this.adminCheckBox.setBackground(new Color(0x123451));
-        this.add(this.adminCheckBox);
 
         this.setVisible(true);
     }
