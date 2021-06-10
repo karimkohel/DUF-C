@@ -4,11 +4,6 @@ public class LoginFrame extends IOFrame implements IOInterface {
 
     public LoginFrame(){
         super();
-
-        this.iconLabel.setIcon(this.icon);
-        this.iconLabel.setBounds(400, 150, 100, 100);
-        this.add(this.iconLabel);
-        // TODO check why logo wont show
         
         this.usernameLabel.setBounds(550,200,80,25);
         this.usernameLabel.setForeground(this.textColor);

@@ -1,7 +1,10 @@
 package packageFacebook;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 public class IOFrame extends MainFrame implements IOInterface{
     protected final JButton loginButton = new JButton("Login");
@@ -13,8 +16,7 @@ public class IOFrame extends MainFrame implements IOInterface{
     protected JLabel passwordLabel = new JLabel("Password");
     protected JPasswordField passwordTextField = new JPasswordField(30);
 
-    protected ImageIcon icon = new ImageIcon("packageFacebook/fb-logo.png");
-    protected JLabel iconLabel = new JLabel();
+    private JLabel iconLabel = new JLabel();
 
     @Override
     protected void goBack() {
@@ -31,5 +33,21 @@ public class IOFrame extends MainFrame implements IOInterface{
             this.successLabel.setForeground(new Color(0xC10000));
             this.successLabel.setText("Invalid Data, Try again");
         }
+    }
+
+    public IOFrame() {
+        super();
+        try{
+            BufferedImage img = ImageIO.read(new File("src/fb-logo.png"));
+            ImageIcon icon = new ImageIcon(img);
+            this.iconLabel.setIcon(icon);
+            this.setForeground(this.textColor);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        this.iconLabel.setBounds(650, 50, 100, 100);
+        this.add(this.iconLabel);
     }
 }
